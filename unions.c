@@ -5,6 +5,22 @@ typedef union AgeOrName {
 	char *name;
 } age_or_name;
 
+// this can be a weapon, potion, or key...
+typedef union {
+    struct {
+        int damage;
+        int range;
+        int size;        
+    } weapon;
+    struct {
+        int healingAmount;
+        int duration;
+    } potion;
+    struct {
+        int doorID;
+    } key;
+};
+
 int main(int argc, char const *argv[])
 {
     printf("showing the use of unions\n");

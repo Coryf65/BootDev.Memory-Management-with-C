@@ -15,6 +15,11 @@ typedef enum {
     HTTP_INTERNAL_SERVER_ERROR = 500,
 } HttpErrorCode;
 
+typedef union IntOrErrorMessage {
+    int data;
+    char error[256];
+} int_or_error_message;
+
 
 int main(int argc, char const *argv[])
 {
@@ -22,6 +27,8 @@ int main(int argc, char const *argv[])
     
     printf("The size of BigNumbers is %zu bytes\n", sizeof(BigNumbers));
     printf("The size of HttpErrorCode is %zu bytes\n", sizeof(HttpErrorCode));
-    
+    // has to store the large char size    
+    printf("The size of Union IntOrError is %zu\n", sizeof(int_or_error_message));
+
     return 0;
 }
